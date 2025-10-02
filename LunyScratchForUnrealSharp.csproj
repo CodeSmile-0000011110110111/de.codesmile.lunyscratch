@@ -1,6 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-	<BaseIntermediateOutputPath>$(SolutionDir)\LunyScratch\obj\</BaseIntermediateOutputPath>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -10,9 +9,11 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>$(SolutionDir)\LunyScratch\bin\Debug\</OutputPath>
+	<BaseIntermediateOutputPath>$(SolutionDir)\LunyScratch\obj\Debug\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>$(SolutionDir)\LunyScratch\bin\Release\</OutputPath>
+	<BaseIntermediateOutputPath>$(SolutionDir)\LunyScratch\obj\Release\</BaseIntermediateOutputPath>
   </PropertyGroup>
   
   <ItemGroup>
