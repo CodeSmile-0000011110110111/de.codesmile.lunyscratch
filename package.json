@@ -1,0 +1,21 @@
+{
+  "name": "de.codesmile.lunyscratch",
+  "displayName": "Luny Scratch",
+  "description": "Scratch-like API",
+  "version": "0.1.0",
+  "unity": "6000.0",
+  "unityRelease": "35f1",
+  "author": {
+    "name": "Steffen Itterheim aka 'CodeSmile' (Unity MVP, Self-Employed)",
+    "email": "steffen@steffenitterheim.de",
+    "url": "https://github.com/CodeSmile-0000011110110111/de.codesmile.lunyscratch"
+  },
+  "changelogUrl": "https://github.com/CodeSmile-0000011110110111/de.codesmile.lunyscratch/blob/main/CHANGELOG.md",
+  "documentationUrl": "https://lunyscript.com",
+  "licensesUrl": "https://github.com/CodeSmile-0000011110110111/de.codesmile.lunyscratch/tree/main/LICENSE",
+  "dependencies": {
+    "com.unity.test-framework": "1.4.6"
+  },
+  "relatedPackages": {},
+  "hideInEditor": false
+}
