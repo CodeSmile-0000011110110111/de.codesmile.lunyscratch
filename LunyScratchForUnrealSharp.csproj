@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+	<BaseIntermediateOutputPath>$(SolutionDir)\LunyScratch\obj\</BaseIntermediateOutputPath>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>LunyScratch</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>$(DefineConstants);UNREAL</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>$(SolutionDir)\LunyScratch\bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>$(SolutionDir)\LunyScratch\bin\Release\</OutputPath>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Reference Include="UnrealSharp">
+      <HintPath>$(SolutionDir)..\Plugins\UnrealSharp\Binaries\Managed\net9.0\UnrealSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="UnrealSharp.Core">
+      <HintPath>$(SolutionDir)..\Plugins\UnrealSharp\Binaries\Managed\net9.0\UnrealSharp.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
