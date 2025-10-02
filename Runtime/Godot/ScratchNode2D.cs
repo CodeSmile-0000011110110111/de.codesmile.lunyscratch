@@ -1,6 +1,4 @@
-// Copyright (C) 2021-2025 Steffen Itterheim
-// Refer to included LICENSE file for terms and conditions.
-
+#if GODOT
 using Godot;
 
 namespace LunyScratch;
@@ -17,3 +15,4 @@ public partial class ScratchNode2D : Node2D
 		_ = GodotScratchRuntime.Instance;
 	}
 }
+#endif
