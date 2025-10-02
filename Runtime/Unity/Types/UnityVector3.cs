@@ -1,6 +1,4 @@
-// Copyright (C) 2021-2025 Steffen Itterheim
-// Refer to included LICENSE file for terms and conditions.
-
+#if UNITY_6000_0_OR_NEWER
 using System;
 using UnityEngine;
 
@@ -21,3 +19,4 @@ namespace LunyScratch
 		public Vector3 ToUnity() => _value;
 	}
 }
+#endif

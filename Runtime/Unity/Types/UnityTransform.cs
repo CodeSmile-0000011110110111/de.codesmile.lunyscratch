@@ -1,6 +1,4 @@
-// Copyright (C) 2021-2025 Steffen Itterheim
-// Refer to included LICENSE file for terms and conditions.
-
+#if UNITY_6000_0_OR_NEWER
 using UnityEngine;
 
 namespace LunyScratch
@@ -20,3 +18,4 @@ namespace LunyScratch
 		public UnityTransform(Transform transform) => _transform = transform;
 	}
 }
+#endif

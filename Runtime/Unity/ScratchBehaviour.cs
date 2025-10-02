@@ -1,3 +1,4 @@
+#if UNITY_6000_0_OR_NEWER
 using UnityEngine;
 
 namespace LunyScratch
@@ -12,3 +13,4 @@ namespace LunyScratch
 		private static void Initialize() => UnityScratchRuntime.Initialize();
 	}
 }
+#endif

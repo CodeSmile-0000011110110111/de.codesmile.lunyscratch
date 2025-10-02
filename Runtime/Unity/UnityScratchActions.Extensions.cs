@@ -1,3 +1,4 @@
+#if UNITY_6000_0_OR_NEWER
 using UnityEngine;
 
 namespace LunyScratch
@@ -11,3 +12,4 @@ namespace LunyScratch
 		public static IStep Disable(Object obj) => ScratchActions.Disable(new UnityEngineObject(obj));
 	}
 }
+#endif
