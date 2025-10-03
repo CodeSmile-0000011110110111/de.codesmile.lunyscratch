@@ -7,7 +7,7 @@ namespace LunyScratch
 	{
 		public static void Run(params IScratchBlock[] blocks)
 		{
-			var sequence = new SequenceBlock(new List<IScratchBlock>(blocks));
+			var sequence = new SequenceBlock(blocks);
 			ScratchEngine.Runtime.RunBlock(sequence);
 		}
 

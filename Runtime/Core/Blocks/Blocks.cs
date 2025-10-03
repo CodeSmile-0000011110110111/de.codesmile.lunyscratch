@@ -6,26 +6,27 @@ using System.Collections.Generic;
 
 namespace LunyScratch
 {
-	public static class ScratchActions
+	public static class Blocks
 	{
 		public static IScratchBlock Say(String message, Double duration = 0) => new ExecuteBlock(() =>
 		{
-			ScratchEngine.Actions.ShowMessage(message, (Single)duration);
+			ScratchEngine.Actions.ShowMessage(message, duration);
 		});
 
 		public static IScratchBlock PlaySound(String soundName, Double volume = 1.0f) => new ExecuteBlock(() =>
 		{
-			ScratchEngine.Actions.PlaySound(soundName, (Single)volume);
+			ScratchEngine.Actions.PlaySound(soundName, volume);
 		});
 
-		public static IScratchBlock Wait(Double seconds) => new WaitBlock((Single)seconds);
-
+		// OBJECT
 		public static IScratchBlock Disable(IEngineObject obj) => new ExecuteBlock(() => obj.SetEnabled(false));
 
 		public static IScratchBlock Enable(IEngineObject obj) => new ExecuteBlock(() => obj.SetEnabled(true));
 
+		// CONTROL
+		public static IScratchBlock Wait(Double seconds) => new WaitBlock(seconds);
 		public static IScratchBlock RepeatForever(params IScratchBlock[] blocks) => new RepeatForeverBlock(new List<IScratchBlock>(blocks));
-		
+
 		public static IScratchBlock RepeatForever(Action block)
 		{
 			var blocks = new List<IScratchBlock>();

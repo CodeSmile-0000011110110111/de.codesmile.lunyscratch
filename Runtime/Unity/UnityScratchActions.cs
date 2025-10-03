@@ -4,22 +4,16 @@ using UnityEngine;
 
 namespace LunyScratch
 {
-	public sealed partial class UnityScratchActions : IScratchActions
+	public sealed class UnityScratchActions : IScratchActions
 	{
-		private readonly UnityScratchRuntime _runtime;
-
-		public UnityScratchActions(UnityScratchRuntime runtime) => _runtime = runtime;
-
-		public Double GetCurrentTime() => Time.time;
+		public Double GetCurrentTimeInSeconds() => Time.time;
+		public Double GetDeltaTimeInSeconds() => Time.deltaTime;
 
 		public void Log(String message) => Debug.Log(message);
 
-		public void ShowMessage(String message, Single duration) => Debug.Log($"[Say] {message}");
+		public void ShowMessage(String message, Double duration) => Debug.Log($"[Say] {message}");
 
-		public void PlaySound(String soundName, Single volume) => Debug.Log($"[PlaySound] {soundName} @ {volume}");
-
-		public Single GetDeltaTime() => Time.deltaTime;
-
+		public void PlaySound(String soundName, Double volume) => Debug.Log($"[PlaySound] {soundName} @ {volume}");
 	}
 }
 #endif

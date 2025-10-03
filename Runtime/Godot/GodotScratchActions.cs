@@ -1,40 +1,24 @@
 #if GODOT
-using System;
 using Godot;
+using System;
 
 namespace LunyScratch
 {
-	public sealed partial class GodotScratchActions : IScratchActions
+	public sealed class GodotScratchActions : IScratchActions
 	{
-		private readonly GodotScratchRuntime _runtime;
+		public void Log(String message) => GD.Print(message);
 
-		public GodotScratchActions(GodotScratchRuntime runtime)
-		{
-			_runtime = runtime;
-		}
+		public void ShowMessage(String message, Double duration) => GD.Print($"[Message] {message}");
 
-		public void Log(String message)
-		{
-			GD.Print(message);
-		}
+		// TODO: Implement UI message display if needed
+		// Could use a Label or RichTextLabel in the scene
+		public void PlaySound(String soundName, Double volume) => GD.Print($"[Sound] {soundName} at volume {volume}");
 
-		public void ShowMessage(String message, Single duration)
-		{
-			GD.Print($"[Message] {message}");
-			// TODO: Implement UI message display if needed
-			// Could use a Label or RichTextLabel in the scene
-		}
+		// TODO: Implement sound playback
+		// Could use AudioStreamPlayer with loaded AudioStream resources
+		public Double GetDeltaTimeInSeconds() => GodotScratchRuntime.Instance.GetProcessDeltaTime();
 
-		public void PlaySound(String soundName, Single volume)
-		{
-			GD.Print($"[Sound] {soundName} at volume {volume}");
-			// TODO: Implement sound playback
-			// Could use AudioStreamPlayer with loaded AudioStream resources
-		}
-
-		public Single GetDeltaTime() => (Single)_runtime.GetProcessDeltaTime();
-
-		public Double GetCurrentTime() => Time.GetTicksMsec() / 1000.0;
+		public Double GetCurrentTimeInSeconds() => Time.GetTicksMsec() / 1000.0;
 	}
 }
 #endif

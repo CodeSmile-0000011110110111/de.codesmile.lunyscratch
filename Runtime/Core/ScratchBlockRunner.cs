@@ -1,12 +1,13 @@
+using System;
 using System.Collections.Generic;
 
 namespace LunyScratch
 {
-	public sealed class ScratchBlocks
+	internal sealed class ScratchBlockRunner
 	{
 		private readonly List<IScratchBlock> _blocks = new();
 
-		public void Process(float deltaTimeInSeconds)
+		public void Process(Double deltaTimeInSeconds)
 		{
 			// Execute all active FSM blocks
 			for (var i = _blocks.Count - 1; i >= 0; i--)
@@ -22,12 +23,9 @@ namespace LunyScratch
 			}
 		}
 
-		public void Dispose()
-		{
-			_blocks.Clear();
-		}
+		public void Dispose() => _blocks.Clear();
 
-		public void Run(IScratchBlock block)
+		public void AddBlock(IScratchBlock block)
 		{
 			block.OnEnter();
 			_blocks.Add(block);

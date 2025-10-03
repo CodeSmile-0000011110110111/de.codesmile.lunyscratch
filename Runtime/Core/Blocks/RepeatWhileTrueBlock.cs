@@ -10,6 +10,9 @@ namespace LunyScratch
 	{
 		private readonly Func<Boolean> _condition;
 
+		public RepeatWhileTrueBlock(Func<Boolean> condition, params IScratchBlock[] blocks)
+			: base(blocks) => _condition = condition;
+
 		public RepeatWhileTrueBlock(Func<Boolean> condition, List<IScratchBlock> blocks)
 			: base(blocks) => _condition = condition;
 

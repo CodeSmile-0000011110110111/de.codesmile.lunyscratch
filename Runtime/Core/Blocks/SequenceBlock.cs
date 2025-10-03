@@ -8,6 +8,12 @@ namespace LunyScratch
 		private readonly List<IScratchBlock> _blocks;
 		private Int32 _currentIndex;
 
+		public SequenceBlock(params IScratchBlock[] blocks)
+		{
+			_blocks = new List<IScratchBlock>(blocks);
+			_currentIndex = 0;
+		}
+
 		public SequenceBlock(List<IScratchBlock> blocks)
 		{
 			_blocks = blocks;
@@ -21,7 +27,7 @@ namespace LunyScratch
 				_blocks[0].OnEnter();
 		}
 
-		public void Run(Single deltaTimeInSeconds)
+		public void Run(Double deltaTimeInSeconds)
 		{
 			if (_currentIndex >= _blocks.Count) return;
 

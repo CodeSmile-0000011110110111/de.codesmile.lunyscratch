@@ -14,6 +14,7 @@ namespace LunyScratch
 		protected Boolean _shouldExit;
 
 		protected RepeatBlockBase(List<IScratchBlock> blocks) => _blocks = blocks;
+		protected RepeatBlockBase(params IScratchBlock[] blocks) => _blocks = new List<IScratchBlock>(blocks);
 
 		public void OnEnter()
 		{
@@ -31,7 +32,7 @@ namespace LunyScratch
 				_blocks[0].OnEnter();
 		}
 
-		public void Run(Single deltaTimeInSeconds)
+		public void Run(Double deltaTimeInSeconds)
 		{
 			if (_shouldExit || _blocks.Count == 0) return;
 

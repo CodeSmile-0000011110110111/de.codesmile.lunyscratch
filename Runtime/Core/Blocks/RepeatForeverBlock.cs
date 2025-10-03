@@ -8,6 +8,9 @@ namespace LunyScratch
 {
 	public sealed class RepeatForeverBlock : RepeatBlockBase
 	{
+		public RepeatForeverBlock(params IScratchBlock[] blocks)
+			: base(blocks) {}
+
 		public RepeatForeverBlock(List<IScratchBlock> blocks)
 			: base(blocks) {}
 
