@@ -6,13 +6,11 @@ namespace LunyScratch
 {
 	public sealed partial class UnityScratchActions : IScratchActions
 	{
-		private readonly ScratchRuntime _runtime;
+		private readonly UnityScratchRuntime _runtime;
 
-		public UnityScratchActions(ScratchRuntime runtime) => _runtime = runtime;
+		public UnityScratchActions(UnityScratchRuntime runtime) => _runtime = runtime;
 
 		public Double GetCurrentTime() => Time.time;
-
-		public void RunBlock(IScratchBlock block) => _runtime.RunBlock(block);
 
 		public void Log(String message) => Debug.Log(message);
 

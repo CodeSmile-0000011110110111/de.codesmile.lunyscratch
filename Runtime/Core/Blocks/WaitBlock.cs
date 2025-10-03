@@ -17,11 +17,11 @@ namespace LunyScratch
 			_startTime = 0;
 		}
 
-		public void OnEnter() => _startTime = GameEngine.Current.GetCurrentTime();
+		public void OnEnter() => _startTime = ScratchEngine.Actions.GetCurrentTime();
 		public void OnExit() {}
 
-		public void Run() {} // No accumulation needed
+		public void Run(Single deltaTimeInSeconds) {} // No accumulation needed
 
-		public Boolean IsComplete() => GameEngine.Current.GetCurrentTime() >= _startTime + _duration;
+		public Boolean IsComplete() => ScratchEngine.Actions.GetCurrentTime() >= _startTime + _duration;
 	}
 }

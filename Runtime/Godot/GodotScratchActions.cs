@@ -35,11 +35,6 @@ namespace LunyScratch
 		public Single GetDeltaTime() => (Single)_runtime.GetProcessDeltaTime();
 
 		public Double GetCurrentTime() => Time.GetTicksMsec() / 1000.0;
-
-		public void RunBlock(IScratchBlock block)
-		{
-			_runtime.RunBlock(block);
-		}
 	}
 }
 #endif

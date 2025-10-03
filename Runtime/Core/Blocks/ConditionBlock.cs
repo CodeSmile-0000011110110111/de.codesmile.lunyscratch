@@ -19,7 +19,7 @@ namespace LunyScratch
 
 		public void OnEnter() => _result = false;
 
-		public void Run() => _result = _condition();
+		public void Run(Single deltaTimeInSeconds) => _result = _condition();
 
 		public void OnExit() {}
 		public Boolean IsComplete() => _result;

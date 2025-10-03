@@ -31,7 +31,7 @@ namespace LunyScratch
 				_blocks[0].OnEnter();
 		}
 
-		public void Run()
+		public void Run(Single deltaTimeInSeconds)
 		{
 			if (_shouldExit || _blocks.Count == 0) return;
 
@@ -43,7 +43,7 @@ namespace LunyScratch
 			}
 
 			var currentBlock = _blocks[_currentIndex];
-			currentBlock.Run();
+			currentBlock.Run(deltaTimeInSeconds);
 
 			if (currentBlock.IsComplete())
 			{

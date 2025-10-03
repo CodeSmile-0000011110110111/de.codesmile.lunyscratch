@@ -18,7 +18,7 @@ namespace LunyScratch
 		}
 		public void OnEnter() => _executed = false;
 
-		public void Run()
+		public void Run(Single deltaTimeInSeconds)
 		{
 			if (!_executed)
 			{

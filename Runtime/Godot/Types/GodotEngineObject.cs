@@ -1,10 +1,10 @@
 #if GODOT
-using System;
 using Godot;
+using System;
 
 namespace LunyScratch
 {
-	public sealed class GodotEngineObject : IGameEngineObject
+	public sealed class GodotEngineObject : IEngineObject
 	{
 		private readonly GodotObject _engineObject;
 
@@ -32,5 +32,5 @@ namespace LunyScratch
 			}
 		}
 	}
-}
 #endif
+}

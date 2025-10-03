@@ -10,19 +10,19 @@ namespace LunyScratch
 	{
 		public static IScratchBlock Say(String message, Double duration = 0) => new ExecuteBlock(() =>
 		{
-			GameEngine.Current.ShowMessage(message, (Single)duration);
+			ScratchEngine.Actions.ShowMessage(message, (Single)duration);
 		});
 
 		public static IScratchBlock PlaySound(String soundName, Double volume = 1.0f) => new ExecuteBlock(() =>
 		{
-			GameEngine.Current.PlaySound(soundName, (Single)volume);
+			ScratchEngine.Actions.PlaySound(soundName, (Single)volume);
 		});
 
 		public static IScratchBlock Wait(Double seconds) => new WaitBlock((Single)seconds);
 
-		public static IScratchBlock Disable(IGameEngineObject obj) => new ExecuteBlock(() => obj.SetEnabled(false));
+		public static IScratchBlock Disable(IEngineObject obj) => new ExecuteBlock(() => obj.SetEnabled(false));
 
-		public static IScratchBlock Enable(IGameEngineObject obj) => new ExecuteBlock(() => obj.SetEnabled(true));
+		public static IScratchBlock Enable(IEngineObject obj) => new ExecuteBlock(() => obj.SetEnabled(true));
 
 		public static IScratchBlock RepeatForever(params IScratchBlock[] blocks) => new RepeatForeverBlock(new List<IScratchBlock>(blocks));
 		

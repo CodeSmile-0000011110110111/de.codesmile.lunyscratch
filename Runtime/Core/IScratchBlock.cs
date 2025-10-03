@@ -12,7 +12,7 @@ namespace LunyScratch
 		void OnEnter();
 		void OnExit();
 
-		void Run();
+		void Run(Single deltaTimeInSeconds);
 		Boolean IsComplete();
 	}
 }
