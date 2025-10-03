@@ -8,13 +8,13 @@ namespace LunyScratch
 	/// Godot runtime singleton that manages step execution.
 	/// Auto-initializes when first accessed.
 	/// </summary>
-	public sealed partial class GodotScratchRuntime : Node, IScratchRuntime
+	public sealed partial class ScratchRuntime : Node, IEngineRuntime
 	{
-		private static GodotScratchRuntime s_Instance;
+		private static ScratchRuntime s_Instance;
 
-		private readonly ScratchBlockRunner _blockRunner = new();
+		private readonly BlockRunner _blockRunner = new();
 
-		public static GodotScratchRuntime Instance => s_Instance;
+		public static ScratchRuntime Instance => s_Instance;
 
 		internal static void Initialize()
 		{
@@ -22,15 +22,15 @@ namespace LunyScratch
 				return;
 
 			// Create runtime node and add to scene tree
-			s_Instance = new GodotScratchRuntime();
-			s_Instance.Name = nameof(GodotScratchRuntime);
+			s_Instance = new ScratchRuntime();
+			s_Instance.Name = nameof(ScratchRuntime);
 
 			// Add to the root to persist across scenes
 			var root = Engine.GetMainLoop() as SceneTree;
 			root.Root.CallDeferred(Node.MethodName.AddChild, s_Instance);
 
 			// Initialize the engine abstraction
-			ScratchEngine.Initialize(s_Instance, new GodotScratchActions());
+			GameEngine.Initialize(s_Instance, new GodotActions());
 		}
 
 		public void RunBlock(IScratchBlock block) => _blockRunner.AddBlock(block);

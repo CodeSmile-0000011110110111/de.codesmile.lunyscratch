@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LunyScratch
 {
-	internal sealed class ScratchBlockRunner
+	internal sealed class BlockRunner
 	{
 		private readonly List<IScratchBlock> _blocks = new();
 

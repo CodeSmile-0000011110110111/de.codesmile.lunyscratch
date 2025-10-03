@@ -3,7 +3,7 @@
 
 namespace LunyScratch
 {
-	public interface IScratchRuntime
+	public interface IEngineRuntime
 	{
 		void RunBlock(IScratchBlock block);
 	}

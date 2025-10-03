@@ -9,7 +9,7 @@ namespace LunyScratch
 	/// </summary>
 	public partial class ScratchNode2D : Node2D
 	{
-		public override void _Ready() => GodotScratchRuntime.Initialize();
+		public override void _Ready() => ScratchRuntime.Initialize();
 	}
 #endif
 }

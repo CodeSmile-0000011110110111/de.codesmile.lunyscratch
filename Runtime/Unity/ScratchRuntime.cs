@@ -7,14 +7,14 @@ namespace LunyScratch
 	[DefaultExecutionOrder(Int16.MinValue)]
 	[AddComponentMenu("GameObject/")] // Do not list in "Add Component" menu
 	[DisallowMultipleComponent]
-	public sealed class UnityScratchRuntime : MonoBehaviour, IScratchRuntime
+	public sealed class ScratchRuntime : MonoBehaviour, IEngineRuntime
 	{
-		private static UnityScratchRuntime s_Instance;
+		private static ScratchRuntime s_Instance;
 		private static Boolean s_Initialized;
 
-		private readonly ScratchBlockRunner _blockRunner = new();
+		private readonly BlockRunner _blockRunner = new();
 
-		public static UnityScratchRuntime Instance => s_Instance;
+		public static ScratchRuntime Instance => s_Instance;
 
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void Initialize()
@@ -23,12 +23,12 @@ namespace LunyScratch
 				return;
 
 			s_Initialized = true;
-			
-			var go = new GameObject(nameof(UnityScratchRuntime));
-			s_Instance = go.AddComponent<UnityScratchRuntime>();
+
+			var go = new GameObject(nameof(ScratchRuntime));
+			s_Instance = go.AddComponent<ScratchRuntime>();
 			DontDestroyOnLoad(go);
 
-			ScratchEngine.Initialize(s_Instance, new UnityScratchActions());
+			GameEngine.Initialize(s_Instance, new UnityActions());
 		}
 
 		public void RunBlock(IScratchBlock block) => _blockRunner.AddBlock(block);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LunyScratch
 {
-	public sealed class UnityScratchActions : IScratchActions
+	internal sealed class UnityActions : IEngineActions
 	{
 		public Double GetCurrentTimeInSeconds() => Time.time;
 		public Double GetDeltaTimeInSeconds() => Time.deltaTime;

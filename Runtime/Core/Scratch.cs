@@ -8,7 +8,7 @@ namespace LunyScratch
 		public static void Run(params IScratchBlock[] blocks)
 		{
 			var sequence = new SequenceBlock(blocks);
-			ScratchEngine.Runtime.RunBlock(sequence);
+			GameEngine.Runtime.RunBlock(sequence);
 		}
 
 		public static void RepeatForever(params IScratchBlock[] blocks) => Run(new RepeatForeverBlock(new List<IScratchBlock>(blocks)));

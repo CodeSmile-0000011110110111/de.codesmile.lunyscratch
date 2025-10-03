@@ -4,7 +4,7 @@ using System;
 
 namespace LunyScratch
 {
-	public sealed class GodotScratchActions : IScratchActions
+	internal sealed class GodotActions : IEngineActions
 	{
 		public void Log(String message) => GD.Print(message);
 
@@ -16,7 +16,7 @@ namespace LunyScratch
 
 		// TODO: Implement sound playback
 		// Could use AudioStreamPlayer with loaded AudioStream resources
-		public Double GetDeltaTimeInSeconds() => GodotScratchRuntime.Instance.GetProcessDeltaTime();
+		public Double GetDeltaTimeInSeconds() => ScratchRuntime.Instance.GetProcessDeltaTime();
 
 		public Double GetCurrentTimeInSeconds() => Time.GetTicksMsec() / 1000.0;
 	}

@@ -10,12 +10,12 @@ namespace LunyScratch
 	{
 		public static IScratchBlock Say(String message, Double duration = 0) => new ExecuteBlock(() =>
 		{
-			ScratchEngine.Actions.ShowMessage(message, duration);
+			GameEngine.Actions.ShowMessage(message, duration);
 		});
 
 		public static IScratchBlock PlaySound(String soundName, Double volume = 1.0f) => new ExecuteBlock(() =>
 		{
-			ScratchEngine.Actions.PlaySound(soundName, volume);
+			GameEngine.Actions.PlaySound(soundName, volume);
 		});
 
 		// OBJECT
