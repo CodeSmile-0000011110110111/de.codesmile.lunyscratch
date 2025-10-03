@@ -21,7 +21,6 @@ namespace LunyScratch
 
 		public void Run(Double deltaTimeInSeconds) => _result = _condition();
 
-		public void OnExit() {}
 		public Boolean IsComplete() => _result;
 	}
 }

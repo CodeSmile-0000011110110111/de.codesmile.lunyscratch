@@ -9,10 +9,10 @@ namespace LunyScratch
 	{
 		void OnCreate() {}
 		void OnDestroy() {}
-		void OnEnter();
-		void OnExit();
+		void OnEnter() {}
+		void OnExit() {}
 
-		void Run(Double deltaTimeInSeconds);
-		Boolean IsComplete();
+		void Run(Double deltaTimeInSeconds) {}
+		Boolean IsComplete() => true;
 	}
 }

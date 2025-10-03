@@ -27,7 +27,6 @@ namespace LunyScratch
 			}
 		}
 
-		public void OnExit() {}
 		public Boolean IsComplete() => _executed;
 	}
 }

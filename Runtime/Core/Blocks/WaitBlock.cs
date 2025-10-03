@@ -18,10 +18,7 @@ namespace LunyScratch
 		}
 
 		public void OnEnter() => _startTime = GameEngine.Actions.GetCurrentTimeInSeconds();
-		public void OnExit() {}
-
-		public void Run(Double deltaTimeInSeconds) {} // No accumulation needed
-
+		public void Run(Double deltaTimeInSeconds) {}
 		public Boolean IsComplete() => GameEngine.Actions.GetCurrentTimeInSeconds() >= _startTime + _duration;
 	}
 }

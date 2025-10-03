@@ -11,8 +11,6 @@ namespace LunyScratch
 		public RepeatForeverBlock(params IScratchBlock[] blocks)
 			: base(blocks) {}
 
-		public RepeatForeverBlock(List<IScratchBlock> blocks)
-			: base(blocks) {}
 
 		protected override Boolean ShouldExitLoop() => false; // Never exits
 	}
