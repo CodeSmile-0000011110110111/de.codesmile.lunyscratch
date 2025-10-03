@@ -5,13 +5,13 @@ using System;
 
 namespace LunyScratch
 {
-	// Wait step (delays for N seconds)
-	public sealed class WaitStep : IStep
+	// Wait block (delays for N seconds)
+	public sealed class WaitBlock : IScratchBlock
 	{
 		private readonly Double _duration;
 		private Double _startTime;
 
-		public WaitStep(Double duration)
+		public WaitBlock(Double duration)
 		{
 			_duration = duration;
 			_startTime = 0;
@@ -20,7 +20,7 @@ namespace LunyScratch
 		public void OnEnter() => _startTime = GameEngine.Current.GetCurrentTime();
 		public void OnExit() {}
 
-		public void Execute() {} // No accumulation needed
+		public void Run() {} // No accumulation needed
 
 		public Boolean IsComplete() => GameEngine.Current.GetCurrentTime() >= _startTime + _duration;
 	}

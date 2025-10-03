@@ -6,19 +6,19 @@ using System;
 namespace LunyScratch
 {
 	// Action step (executes immediately)
-	public sealed class ActionStep : IStep
+	public sealed class ExecuteBlock : IScratchBlock
 	{
 		private readonly Action _action;
 		private Boolean _executed;
 
-		public ActionStep(Action action)
+		public ExecuteBlock(Action action)
 		{
 			_action = action;
 			_executed = false;
 		}
 		public void OnEnter() => _executed = false;
 
-		public void Execute()
+		public void Run()
 		{
 			if (!_executed)
 			{

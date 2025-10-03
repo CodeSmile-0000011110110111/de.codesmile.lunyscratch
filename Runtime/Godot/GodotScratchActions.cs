@@ -36,9 +36,9 @@ namespace LunyScratch
 
 		public Double GetCurrentTime() => Time.GetTicksMsec() / 1000.0;
 
-		public void RunStep(IStep step)
+		public void RunBlock(IScratchBlock block)
 		{
-			_runtime.RegisterStep(step);
+			_runtime.RunBlock(block);
 		}
 	}
 }

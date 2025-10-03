@@ -7,13 +7,12 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DefineConstants>$(DefineConstants);UNREAL</DefineConstants>
   </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <OutputPath>$(SolutionDir)\LunyScratch\bin\Debug\</OutputPath>
-	<BaseIntermediateOutputPath>$(SolutionDir)\LunyScratch\obj\Debug\</BaseIntermediateOutputPath>
+    <OutputPath>.bin\Debug\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <OutputPath>$(SolutionDir)\LunyScratch\bin\Release\</OutputPath>
-	<BaseIntermediateOutputPath>$(SolutionDir)\LunyScratch\obj\Release\</BaseIntermediateOutputPath>
+    <OutputPath>.bin\Release\</OutputPath>
   </PropertyGroup>
   
   <ItemGroup>

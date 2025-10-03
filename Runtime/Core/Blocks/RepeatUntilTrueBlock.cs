@@ -6,13 +6,12 @@ using System.Collections.Generic;
 
 namespace LunyScratch
 {
-	// Repeat until condition becomes true
-	public sealed class RepeatUntilTrueStep : RepeatStepBase
+	public sealed class RepeatUntilTrueBlock : RepeatBlockBase
 	{
 		private readonly Func<Boolean> _condition;
 
-		public RepeatUntilTrueStep(Func<Boolean> condition, List<IStep> steps)
-			: base(steps) => _condition = condition;
+		public RepeatUntilTrueBlock(Func<Boolean> condition, List<IScratchBlock> blocks)
+			: base(blocks) => _condition = condition;
 
 		protected override Boolean ShouldExitLoop() => _condition(); // Exit when condition becomes true
 	}

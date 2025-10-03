@@ -6,14 +6,14 @@ using System.Collections.Generic;
 
 namespace LunyScratch
 {
-	// Base class for repeating step sequences
-	public abstract class RepeatStepBase : IStep
+	// Base class for repeating block sequences
+	public abstract class RepeatBlockBase : IScratchBlock
 	{
-		protected readonly List<IStep> _steps;
+		protected readonly List<IScratchBlock> _blocks;
 		protected Int32 _currentIndex;
 		protected Boolean _shouldExit;
 
-		protected RepeatStepBase(List<IStep> steps) => _steps = steps;
+		protected RepeatBlockBase(List<IScratchBlock> blocks) => _blocks = blocks;
 
 		public void OnEnter()
 		{
@@ -27,13 +27,13 @@ namespace LunyScratch
 				return;
 			}
 
-			if (_steps.Count > 0)
-				_steps[0].OnEnter();
+			if (_blocks.Count > 0)
+				_blocks[0].OnEnter();
 		}
 
-		public void Execute()
+		public void Run()
 		{
-			if (_shouldExit || _steps.Count == 0) return;
+			if (_shouldExit || _blocks.Count == 0) return;
 
 			// Check exit condition before executing
 			if (ShouldExitLoop())
@@ -42,16 +42,16 @@ namespace LunyScratch
 				return;
 			}
 
-			var currentStep = _steps[_currentIndex];
-			currentStep.Execute();
+			var currentBlock = _blocks[_currentIndex];
+			currentBlock.Run();
 
-			if (currentStep.IsComplete())
+			if (currentBlock.IsComplete())
 			{
-				currentStep.OnExit();
+				currentBlock.OnExit();
 				_currentIndex++;
 
-				// Check if we've completed all steps in the sequence
-				if (_currentIndex >= _steps.Count)
+				// Check if we've completed all blocks in the sequence
+				if (_currentIndex >= _blocks.Count)
 				{
 					// Check exit condition before restarting
 					if (ShouldExitLoop())
@@ -64,14 +64,14 @@ namespace LunyScratch
 					_currentIndex = 0;
 				}
 
-				_steps[_currentIndex].OnEnter();
+				_blocks[_currentIndex].OnEnter();
 			}
 		}
 
 		public void OnExit()
 		{
-			if (_steps.Count > 0 && _currentIndex < _steps.Count)
-				_steps[_currentIndex].OnExit();
+			if (_blocks.Count > 0 && _currentIndex < _blocks.Count)
+				_blocks[_currentIndex].OnExit();
 		}
 
 		public Boolean IsComplete() => _shouldExit;

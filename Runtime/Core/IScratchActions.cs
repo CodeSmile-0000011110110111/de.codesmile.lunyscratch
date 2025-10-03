@@ -12,7 +12,7 @@ namespace LunyScratch
 		void PlaySound(String soundName, Single volume);
 		Single GetDeltaTime();
 		Double GetCurrentTime();
-		void RunStep(IStep step);
+		void RunBlock(IScratchBlock block);
 
 	}
 }

@@ -1,8 +1,11 @@
 #if UNREAL
+using UnrealSharp;
+using UnrealSharp.Attributes;
 using UnrealSharp.Engine;
 
 namespace LunyScratch;
 
+[UClass]
 public sealed class UnrealScratchRuntime : UGameInstanceSubsystem
 {
 	private static UnrealScratchRuntime _instance;
@@ -12,6 +15,8 @@ public sealed class UnrealScratchRuntime : UGameInstanceSubsystem
 
 	public UnrealScratchRuntime()
 	{
+		PrintString($"====> {nameof(UnrealScratchRuntime)} ctor()");
+
 		if (_instance != null)
 			throw new Exception($"{nameof(UnrealScratchRuntime)} singleton duplication");
 

@@ -5,8 +5,8 @@ namespace LunyScratch;
 
 public sealed partial class GodotScratchActions
 {
-	public static IStep Enable(GodotObject obj) => ScratchActions.Enable(new GodotEngineObject(obj));
+	public static IScratchBlock Enable(GodotObject obj) => ScratchActions.Enable(new GodotEngineObject(obj));
 
-	public static IStep Disable(GodotObject obj) => ScratchActions.Disable(new GodotEngineObject(obj));
+	public static IScratchBlock Disable(GodotObject obj) => ScratchActions.Disable(new GodotEngineObject(obj));
 }
 #endif

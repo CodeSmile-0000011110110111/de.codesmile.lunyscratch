@@ -13,7 +13,7 @@ namespace LunyScratch
 		private static ScratchRuntime s_Instance;
 		private static Boolean s_Initialized;
 
-		private readonly List<IStep> _steps = new();
+		private readonly List<IScratchBlock> _steps = new();
 
 		public static ScratchRuntime Instance => s_Instance;
 
@@ -40,7 +40,7 @@ namespace LunyScratch
 			for (var i = _steps.Count - 1; i >= 0; i--)
 			{
 				var step = _steps[i];
-				step.Execute();
+				step.Run();
 
 				if (step.IsComplete())
 				{
@@ -58,10 +58,10 @@ namespace LunyScratch
 		}
 
 		// Register a new step sequence
-		public void RunStep(IStep step)
+		public void RunBlock(IScratchBlock block)
 		{
-			step.OnEnter();
-			Instance._steps.Add(step);
+			block.OnEnter();
+			Instance._steps.Add(block);
 		}
 	}
 }

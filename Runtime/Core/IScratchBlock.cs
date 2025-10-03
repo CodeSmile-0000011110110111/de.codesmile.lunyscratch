@@ -5,14 +5,14 @@ using System;
 
 namespace LunyScratch
 {
-	public interface IStep
+	public interface IScratchBlock
 	{
 		void OnCreate() {}
 		void OnDestroy() {}
 		void OnEnter();
 		void OnExit();
 
-		void Execute();
+		void Run();
 		Boolean IsComplete();
 	}
 }

@@ -8,8 +8,8 @@ namespace LunyScratch
 	/// </summary>
 	public sealed partial class UnityScratchActions
 	{
-		public static IStep Enable(Object obj) => ScratchActions.Enable(new UnityEngineObject(obj));
-		public static IStep Disable(Object obj) => ScratchActions.Disable(new UnityEngineObject(obj));
+		public static IScratchBlock Enable(Object obj) => ScratchActions.Enable(new UnityEngineObject(obj));
+		public static IScratchBlock Disable(Object obj) => ScratchActions.Disable(new UnityEngineObject(obj));
 	}
 }
 #endif

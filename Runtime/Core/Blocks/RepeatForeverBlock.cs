@@ -6,11 +6,10 @@ using System.Collections.Generic;
 
 namespace LunyScratch
 {
-	// Repeat forever step
-	public sealed class RepeatForeverStep : RepeatStepBase
+	public sealed class RepeatForeverBlock : RepeatBlockBase
 	{
-		public RepeatForeverStep(List<IStep> steps)
-			: base(steps) {}
+		public RepeatForeverBlock(List<IScratchBlock> blocks)
+			: base(blocks) {}
 
 		protected override Boolean ShouldExitLoop() => false; // Never exits
 	}

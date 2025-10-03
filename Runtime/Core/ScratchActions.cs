@@ -8,35 +8,35 @@ namespace LunyScratch
 {
 	public static class ScratchActions
 	{
-		public static IStep Say(String message, Double duration = 0) => new ActionStep(() =>
+		public static IScratchBlock Say(String message, Double duration = 0) => new ExecuteBlock(() =>
 		{
 			GameEngine.Current.ShowMessage(message, (Single)duration);
 		});
 
-		public static IStep PlaySound(String soundName, Double volume = 1.0f) => new ActionStep(() =>
+		public static IScratchBlock PlaySound(String soundName, Double volume = 1.0f) => new ExecuteBlock(() =>
 		{
 			GameEngine.Current.PlaySound(soundName, (Single)volume);
 		});
 
-		public static IStep Wait(Double seconds) => new WaitStep((Single)seconds);
+		public static IScratchBlock Wait(Double seconds) => new WaitBlock((Single)seconds);
 
-		public static IStep Disable(IGameEngineObject obj) => new ActionStep(() => obj.SetEnabled(false));
+		public static IScratchBlock Disable(IGameEngineObject obj) => new ExecuteBlock(() => obj.SetEnabled(false));
 
-		public static IStep Enable(IGameEngineObject obj) => new ActionStep(() => obj.SetEnabled(true));
+		public static IScratchBlock Enable(IGameEngineObject obj) => new ExecuteBlock(() => obj.SetEnabled(true));
 
-		public static IStep RepeatForever(params IStep[] steps) => new RepeatForeverStep(new List<IStep>(steps));
+		public static IScratchBlock RepeatForever(params IScratchBlock[] blocks) => new RepeatForeverBlock(new List<IScratchBlock>(blocks));
 		
-		public static IStep RepeatForever(Action step)
+		public static IScratchBlock RepeatForever(Action block)
 		{
-			var steps = new List<IStep>();
-			steps.Add(new ActionStep(step));
-			return new RepeatForeverStep(steps);
+			var blocks = new List<IScratchBlock>();
+			blocks.Add(new ExecuteBlock(block));
+			return new RepeatForeverBlock(blocks);
 		}
 
-		public static IStep RepeatWhileTrue(Func<Boolean> condition, params IStep[] steps) =>
-			new RepeatWhileTrueStep(condition, new List<IStep>(steps));
+		public static IScratchBlock RepeatWhileTrue(Func<Boolean> condition, params IScratchBlock[] blocks) =>
+			new RepeatWhileTrueBlock(condition, new List<IScratchBlock>(blocks));
 
-		public static IStep RepeatUntilTrue(Func<Boolean> condition, params IStep[] steps) =>
-			new RepeatUntilTrueStep(condition, new List<IStep>(steps));
+		public static IScratchBlock RepeatUntilTrue(Func<Boolean> condition, params IScratchBlock[] blocks) =>
+			new RepeatUntilTrueBlock(condition, new List<IScratchBlock>(blocks));
 	}
 }

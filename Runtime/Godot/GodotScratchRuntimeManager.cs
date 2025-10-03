@@ -12,7 +12,7 @@ namespace LunyScratch
 	public partial class GodotScratchRuntime : Node
 	{
 		private static GodotScratchRuntime s_Instance;
-		private readonly List<IStep> m_Steps = new();
+		private readonly List<IScratchBlock> _blocks = new();
 
 		// Self-initializing singleton property
 		public static GodotScratchRuntime Instance
@@ -55,16 +55,16 @@ namespace LunyScratch
 
 		public override void _Process(Double delta)
 		{
-			// Execute all active FSM steps
-			for (var i = m_Steps.Count - 1; i >= 0; i--)
+			// Execute all active FSM blocks
+			for (var i = _blocks.Count - 1; i >= 0; i--)
 			{
-				var step = m_Steps[i];
-				step.Execute();
+				var block = _blocks[i];
+				block.Run();
 
-				if (step.IsComplete())
+				if (block.IsComplete())
 				{
-					step.OnExit();
-					m_Steps.RemoveAt(i);
+					block.OnExit();
+					_blocks.RemoveAt(i);
 				}
 			}
 		}
@@ -75,11 +75,10 @@ namespace LunyScratch
 				s_Instance = null;
 		}
 
-		// Public method for engine to register steps
-		public void RegisterStep(IStep step)
+		public void RunBlock(IScratchBlock block)
 		{
-			step.OnEnter();
-			m_Steps.Add(step);
+			block.OnEnter();
+			_blocks.Add(block);
 		}
 	}
 }

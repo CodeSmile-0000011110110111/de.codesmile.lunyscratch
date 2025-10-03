@@ -6,12 +6,12 @@ using System;
 namespace LunyScratch
 {
 	// Conditional step (checks condition before proceeding)
-	public sealed class ConditionStep : IStep
+	public sealed class ConditionBlock : IScratchBlock
 	{
 		private readonly Func<Boolean> _condition;
 		private Boolean _result;
 
-		public ConditionStep(Func<Boolean> condition)
+		public ConditionBlock(Func<Boolean> condition)
 		{
 			_condition = condition;
 			_result = false;
@@ -19,7 +19,7 @@ namespace LunyScratch
 
 		public void OnEnter() => _result = false;
 
-		public void Execute() => _result = _condition();
+		public void Run() => _result = _condition();
 
 		public void OnExit() {}
 		public Boolean IsComplete() => _result;

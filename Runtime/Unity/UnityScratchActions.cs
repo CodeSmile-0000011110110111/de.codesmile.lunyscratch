@@ -12,7 +12,7 @@ namespace LunyScratch
 
 		public Double GetCurrentTime() => Time.time;
 
-		public void RunStep(IStep step) => _runtime.RunStep(step);
+		public void RunBlock(IScratchBlock block) => _runtime.RunBlock(block);
 
 		public void Log(String message) => Debug.Log(message);
 
