@@ -4,7 +4,7 @@ using System;
 
 namespace LunyScratch
 {
-	public sealed class GodotEngineObject : IEngineObject
+	internal sealed class GodotEngineObject : IEngineObject
 	{
 		private readonly GodotObject _engineObject;
 

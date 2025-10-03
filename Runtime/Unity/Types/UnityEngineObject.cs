@@ -5,7 +5,7 @@ using Object = UnityEngine.Object;
 
 namespace LunyScratch
 {
-	public sealed class UnityEngineObject : IEngineObject
+	internal sealed class UnityEngineObject : IEngineObject
 	{
 		private readonly Object _engineObject;
 

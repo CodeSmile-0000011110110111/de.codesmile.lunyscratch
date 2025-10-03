@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LunyScratch
 {
-	public sealed class UnityVector3 : IVector3
+	internal sealed class UnityVector3 : IVector3
 	{
 		private Vector3 _value;
 

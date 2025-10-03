@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace LunyScratch
 {
-	public sealed class UnityTransform : ITransform
+	internal sealed class UnityTransform : ITransform
 	{
 		private readonly Transform _transform;
 

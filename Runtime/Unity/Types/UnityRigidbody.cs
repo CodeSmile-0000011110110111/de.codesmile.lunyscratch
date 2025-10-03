@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace LunyScratch
 {
-	public sealed class UnityRigidbody : IRigidbody
+	internal sealed class UnityRigidbody : IRigidbody
 	{
 		private readonly Rigidbody _rigidbody;
 
