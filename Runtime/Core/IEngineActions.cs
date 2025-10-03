@@ -5,7 +5,7 @@ using System;
 
 namespace LunyScratch
 {
-	public interface IEngineActions
+	internal interface IEngineActions
 	{
 		void Log(String message);
 		void ShowMessage(String message, Double duration);
