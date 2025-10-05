@@ -6,6 +6,10 @@ namespace LunyScratch
 	public static partial class Blocks
 	{
 		public static IScratchBlock Wait(Double seconds) => new WaitBlock(seconds);
+
+		public static IScratchBlock Disable(IEngineObject obj) => new ExecuteBlock(() => obj.SetEnabled(false));
+		public static IScratchBlock Enable(IEngineObject obj) => new ExecuteBlock(() => obj.SetEnabled(true));
+
 		public static IScratchBlock RepeatForever(params IScratchBlock[] blocks) => new RepeatForeverBlock(blocks);
 		public static IScratchBlock RepeatForever(Action block) => RepeatForever(new ExecuteBlock(block));
 
