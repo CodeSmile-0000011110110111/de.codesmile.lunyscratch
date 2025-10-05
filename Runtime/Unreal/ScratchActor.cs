@@ -1,29 +1,26 @@
 #if UNREAL
+using UnrealSharp.Attributes;
 using UnrealSharp.Engine;
 
 namespace LunyScratch;
 
-public abstract class ScratchActor : AActor
+// FIXME: UnrealSharp currently doesn't allow abstract AActor subclassing => https://github.com/UnrealSharp/UnrealSharp/issues/560
+[UClass]
+public /*abstract*/ class AScratchActor : AActor
 {
-	protected UnrealScratchActions Actions { get; private set; }
-
 	protected override void BeginPlay()
 	{
-		PrintString($"====> {nameof(ScratchActor)} BeginPlay()");
-
 		base.BeginPlay();
-		Actions = new UnrealScratchActions(this);
-		OnStart();
+		OnReady();
 	}
 
 	public override void Tick(Single deltaTime)
 	{
-		PrintString($"====> {nameof(ScratchActor)} Tick({deltaTime})");
 		base.Tick(deltaTime);
 		OnUpdate(deltaTime);
 	}
 
-	protected abstract void OnStart();
-	protected abstract void OnUpdate(Single deltaTime);
+	protected virtual void OnReady() {}
+	protected virtual void OnUpdate(Single deltaTime) {}
 }
 #endif
