@@ -1606,10 +1606,11 @@ git clone --recursive https://github.com/you/LunyScratch-Examples-Unity.git
 That's it. No setup scripts, no debugging, no platform issues. Just Git doing what Git does best.
 
 Want me to generate the exact `.gitmodules` files for your current structure?
-```
 
 
 ----
+
+
 Perfect! Let me explain Git submodules clearly and show you **exactly** how to safely apply them to your existing setup.
 
 ## What Git Submodules Do
